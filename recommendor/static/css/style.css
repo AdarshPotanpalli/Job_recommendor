@@ -1,0 +1,70 @@
+.navbar {
+    background-color: #343a40 !important;
+}
+
+.navbar .nav-link,
+.navbar .navbar-brand {
+    color: #f8f9fa !important;
+    transition: color 0.3s ease-in-out;
+}
+
+.navbar .nav-link:hover,
+.navbar .navbar-brand:hover {
+    color: #ffc107 !important;
+}
+
+.btn-primary {
+    background-color: #ffc107;
+    border-color: #ffc107;
+    color: #212529;
+    transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out, transform 0.2s ease;
+}
+
+.btn-primary:hover {
+    background-color: #e0a800;
+    border-color: #e0a800;
+    color: #fff;
+    transform: scale(1.05);
+}
+
+.btn-secondary:hover {
+    transform: scale(1.05);
+}
+
+.btn-info:hover {
+    transform: scale(1.05);
+}
+
+.hero-image {
+    max-width: 100%;
+    /* Prevents the image from exceeding the container width */
+    height: auto;
+    /* Maintains the aspect ratio */
+    width: 100%;
+    /* You can set the width to a specific percentage (e.g., 80%) */
+}
+
+/* Make sure the body takes the full height of the viewport */
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+/* Create a flexbox container for the page */
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* Make sure the content area takes available space */
+.content {
+    flex-grow: 1;
+}
+
+.job-actions {
+    display: flex;
+    gap: 10px; /* Adjusts the space between the buttons */
+    align-items: center;
+}

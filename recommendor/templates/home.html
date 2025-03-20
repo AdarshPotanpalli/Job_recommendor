@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Home Page
+{% endblock %}
+
+{% block content %}
+<div class="text-center">
+    <h1>Welcome to the Job Recommender System</h1>
+    <p class="lead">Find your dream job effortlessly with our AI-powered recommendation engine.</p>
+    <img src="/static/images/top_view.jpg" alt="Job Recommender" class="hero-image">
+</div>
+
+<div class="row mt-4">
+    <div class="col-md-6">
+        <h3>About Our Job Recommender</h3>
+        <p>
+            Our job recommender model uses Natural Language Processing and Machine Learning techniques to match you with the best job
+            opportunities based on your skills, experience, and interests.
+            By analyzing job descriptions and user profiles, we ensure that you receive personalized recommendations
+            that fit your career goals.
+        </p>
+    </div>
+    <div class="col-md-6">
+        <h3>How It Works</h3>
+        <ul>
+            <li>Upload your resume/CV.</li>
+            <li>Our AI model analyzes your profile and compares it with job listings.</li>
+            <li>Receive personalized job recommendations that match your expertise.</li>
+            <li>Apply to jobs directly through our platform.</li>
+            <li>Archive the jobs you like.</li>
+        </ul>
+    </div>
+</div>
+
+<div class="text-center mt-4">
+    <a href="{{url_for('recommendor_page')}}" class="btn btn-primary btn-lg">Get Job Recommendations</a>
+</div>
+{% endblock %}

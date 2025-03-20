@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Recommendor Page
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <!-- Left Column: Upload PDF -->
+        <div class="col-md-5">
+            <h3 class = "mb-3">Hi {{current_user.user_name}}!</h3>
+            <h5 class="mb-3">Upload Your Resume here</h5>
+            <form action="{{ url_for('recommendor_page') }}" method="POST" enctype="multipart/form-data">
+                {{ resume_upload_form.hidden_tag() }}
+                <div class="mb-3">
+                    <input id ="resume" type="file" class="form-control" name="resume" accept=".pdf" value= 'upload' required>
+                    <br>
+                    {{resume_upload_form.submit(class = "btn btn-primary")}}
+                </div>
+            </form>
+        </div>
+
+        <!-- Right Column: Job Recommendations -->
+        <div class="col-md-7">
+            <h3 class="mb-3">Recommended Jobs</h3>
+            {% if jobs!= [] %}
+            <ul class="list-group">
+                {% for job in jobs %}
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <div class="job-item">
+                        <h5>{{ loop.index }}. {{ job['JobTitle'] }}</h5>
+                        <h6>{{ job['CompanyName'] }}</h6>
+                        <p><strong>Skills Required:</strong> {{ job['SkillsRequired']}}</p>
+                        <p><strong>Experience Required:</strong> {{ job['ExperienceRequired'] }}</p>
+                        <div class="job-actions">
+                            <a href="{{job['MoreInformation']}}" target="_blank" class="btn btn-sm btn-info">More
+                                Info</a>
+                            <form method="post" action="{{ url_for('recommendor_page')}}">
+                                {{ archive_form.hidden_tag() }}
+                                <input id = 'more_like_this' name = 'more_like_this' type = 'hidden' value="{{job}}">
+                                {{archive_form.submit(class= "btn btn-sm btn-secondary")}}
+                            </form>
+                        </div>
+                    </div>
+
+                </li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <p class="text-muted">No job recommendations yet. Upload your resume to get started.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Archives Page
+{% endblock %}
+
+
+{% block content %}
+<div class="container mt-5">
+    <div class="text-center mb-4">
+        <h3 class="mb-3">Archives</h3>
+    </div>
+    
+    {% if jobs %}
+        <div class="row">
+            {% for job in jobs %}
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ job.job_title }}</h5>
+                        <h6 class="card-subtitle mb-3 text-muted">{{ job.company_name }}</h6>
+                        <p><strong>Skills Required:</strong> {{ job.skills_required }}</p>
+                        <p><strong>Experience Required:</strong> {{ job.experience_required }}</p>
+                        <a href="{{ job.more_information }}" target="_blank" class="btn btn-sm btn-info">More Info</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p class="mt-3">
+            No jobs saved, get some job recommendations here&nbsp;&nbsp;
+            <a href="{{ url_for('recommendor_page') }}" class="btn btn-primary ms-2">Go to Recommendor Page</a>
+        </p>
+    {% endif %}
+</div>
+{% endblock %}
