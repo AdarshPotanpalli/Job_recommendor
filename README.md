@@ -48,7 +48,7 @@ A Flask-based job recommendation system that allows users to upload resumes in P
 
 1. **Clone the Repository**
    ```sh
-   https://github.com/AdarshPotanpalli/Job_recommendor.git
+   git clone https://github.com/AdarshPotanpalli/Job_recommendor.git
    cd Job_redommendor
    ```
 2. **Create and Activate Virtual Environment**
